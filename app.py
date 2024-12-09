@@ -20,7 +20,9 @@ def get_euro_rate_from_day(d: date):
             if look_for_rate and "EUR" in l:
                 match=re.search(r'<Rate currency="EUR">([\d.]+)</Rate>', l)
                 rate=float(match.group(1))
-                break               
+                break    
+    if rate == 0:
+        rate = get_euro_rate_from_day(d-timedelta(days=1))           
     return rate
 
 def get_previous_working_day(requested_date: date) -> date:
