@@ -2,7 +2,7 @@
 <DataSet xmlns="http://www.bnr.ro/xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bnr.ro/xsd nbrfxrates.xsd">
 	<Header>
 		<Publisher>National Bank of Romania</Publisher>
-		<PublishingDate>2024-12-09</PublishingDate>
+		<PublishingDate>2024-12-10</PublishingDate>
 		<MessageType>DR</MessageType>
 	</Header>
 	<Body>
@@ -8253,6 +8253,46 @@
 			<Rate currency="XAU">401.2800</Rate>
 			<Rate currency="XDR">6.1908</Rate>
 			<Rate currency="ZAR">0.2632</Rate>
+		</Cube>
+		<Cube date="2024-12-10">
+			<Rate currency="AED">1.2854</Rate>
+			<Rate currency="AUD">3.0204</Rate>
+			<Rate currency="BGN">2.5416</Rate>
+			<Rate currency="BRL">0.7767</Rate>
+			<Rate currency="CAD">3.3326</Rate>
+			<Rate currency="CHF">5.3650</Rate>
+			<Rate currency="CNY">0.6509</Rate>
+			<Rate currency="CZK">0.1981</Rate>
+			<Rate currency="DKK">0.6666</Rate>
+			<Rate currency="EGP">0.0937</Rate>
+			<Rate currency="EUR">4.9709</Rate>
+			<Rate currency="GBP">6.0224</Rate>
+			<Rate currency="HKD">0.6072</Rate>
+			<Rate currency="HUF" multiplier="100">1.2093</Rate>
+			<Rate currency="IDR" multiplier="100">0.0297</Rate>
+			<Rate currency="ILS">1.3214</Rate>
+			<Rate currency="INR">0.0556</Rate>
+			<Rate currency="ISK" multiplier="100">3.4071</Rate>
+			<Rate currency="JPY" multiplier="100">3.1153</Rate>
+			<Rate currency="KRW" multiplier="100">0.3300</Rate>
+			<Rate currency="MDL">0.2563</Rate>
+			<Rate currency="MXN">0.2335</Rate>
+			<Rate currency="MYR">1.0663</Rate>
+			<Rate currency="NOK">0.4247</Rate>
+			<Rate currency="NZD">2.7502</Rate>
+			<Rate currency="PHP">0.0814</Rate>
+			<Rate currency="PLN">1.1652</Rate>
+			<Rate currency="RSD">0.0425</Rate>
+			<Rate currency="RUB">0.0469</Rate>
+			<Rate currency="SEK">0.4313</Rate>
+			<Rate currency="SGD">3.5213</Rate>
+			<Rate currency="THB">0.1400</Rate>
+			<Rate currency="TRY">0.1356</Rate>
+			<Rate currency="UAH">0.1133</Rate>
+			<Rate currency="USD">4.7216</Rate>
+			<Rate currency="XAU">406.2521</Rate>
+			<Rate currency="XDR">6.2095</Rate>
+			<Rate currency="ZAR">0.2647</Rate>
 		</Cube>
 	</Body>
 </DataSet>
