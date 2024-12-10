@@ -6,8 +6,10 @@ from invoice_utils import (
     get_euro_rate_from_day,
 )
 from datetime import date
+from flask_frozen import Freezer
 
 app = Flask(__name__)
+freezer = Freezer(app)
 
 @app.route("/<date_str>")
 def get_date(date_str: str):
@@ -24,10 +26,10 @@ def month_page(year: int, month: int):
     try:
         year = int(year)
         month = int(month)
-        if year > today.year or (year == today.year and month > today.month):
-            return jsonify({"error": "Invalid date. Please use a date in the past."})
-        
         end_of_month = get_last_day_of_month(month, year)
+        if year > today.year or (year == today.year and month > today.month) or (year == today.year and month == today.month and end_of_month.month > today.day):
+            return jsonify({"error": f"Invalid date. End of month {month}/{year} {end_of_month:%Y-%m-%d} is in the future."})
+        
         fx_day = get_previous_working_day(end_of_month)
         fx_rate = get_euro_rate_from_day(fx_day)
 
@@ -64,6 +66,12 @@ def root():
     return render_template(
         "index.html",  months=result, year=year
     )
+
+@freezer.register_generator
+def url_generator():
+    yield '/'
+    for month in range(1,12):
+        yield f"/2024/{month}"
 
 if __name__ == "__main__":
     app.run(debug=True)
