@@ -15,7 +15,7 @@
 </head>
 <body class="d-flex justify-content-center align-items-center vh-100">
     <div class="container text-center">
-        <h1>{{ message }}</h1>
+        <h1>FX rate at the end of each month in {{year}}</h1>
         <table class="table table-striped mt-4 mx-auto" style="width: 75%;">
             <thead>
                 <tr>
@@ -28,9 +28,11 @@
             <tbody>
                 {% for month in months %}
                 <tr>
-                    <td class="text-center">{{ month.month }}</td>
-                    <td class="text-center">{{ month.end_day}}</td>
-                    <td class="text-center">{{ month.fx_day }}</td>
+                    <td class="text-center">
+                        <a href="/{{ year }}/{{ month.end_day.month }}">{{ month.month }}</a>
+                    </td>
+                    <td class="text-center">{{ month.end_day.strftime('%A, %Y-%m-%d') }}</td>
+                    <td class="text-center">{{ month.fx_day.strftime('%A, %Y-%m-%d') }}</td>
                     <td class="text-center">{{ month.rate }}</td>
                 </tr>
                 {% endfor %}
