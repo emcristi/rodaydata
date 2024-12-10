@@ -29,7 +29,7 @@
                 {% for month in months %}
                 <tr>
                     <td class="text-center">
-                        <a href="/{{ year }}/{{ month.end_day.month }}.html">{{ month.month }}</a>
+                        <a href="{{ year }}/{{ month.end_day.month }}.html">{{ month.month }}</a>
                     </td>
                     <td class="text-center">{{ month.end_day.strftime('%A, %Y-%m-%d') }}</td>
                     <td class="text-center">{{ month.fx_day.strftime('%A, %Y-%m-%d') }}</td>
