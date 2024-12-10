@@ -40,10 +40,10 @@
         Servicii cf. contract {{fx_day.strftime('%B')}} {{year}}
     </p>
     <p>
-        Preț fără TVA : {{fx_rate * 1300 }} lei
+        Preț fără TVA : {{"%.2f" | format(fx_rate * 1300) }} lei
     </p>
     <p>
-        Observații: 1300 euro = {{fx_rate * 1300}} lei la cursul 1 euro = {{fx_rate}} lei cf. Contract C01 in 01.09.2021
+        Observații: 1300 euro = {{ "{:.2f}".format(fx_rate * 1300) }} lei la cursul 1 euro = {{fx_rate}} lei cf. Contract C01 in 01.09.2021
     </p>
     <p>
         DELEGAT: Marian Cristi Ene
