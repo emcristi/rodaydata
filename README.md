@@ -17,3 +17,9 @@ Develop with
 
 Get the latest FX-rates from `wget https://www.bnro.ro/files/xml/years/nbrfxrates2024.xml`
 
+## Generate static site
+
+Generate in /build
+
+    python3 freeze.py
+
