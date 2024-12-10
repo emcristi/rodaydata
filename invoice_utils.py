@@ -71,3 +71,14 @@ def get_last_day_of_month(month: int, year: int) -> date:
         last_day = date(year, month + 1, 1) - one_day
     # print(f"Last day of month {month} from {year} is: {last_day: %B(%m)/%d %0A}")
     return last_day
+
+
+if __name__ == "__main__":
+    month = 11
+    year = 2024
+    dl = get_last_day_of_month(month, year)
+    dd = get_previous_working_day(get_last_day_of_month(month,year));
+    print(f"{month}/{year} last day is {dl:%A, %d-%m-%Y} and the rate is {get_euro_rate_from_day(dl)}")
+    print(f"{month}/{year} previous is {dd:%A, %d-%m-%Y} and the rate is {get_euro_rate_from_day(dd)}")
+
+

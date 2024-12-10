@@ -23,9 +23,10 @@ def root():
     year = 2024
     result = []
     for month in range(12):
-        dd = get_previous_working_day(get_last_day_of_month(month + 1, year))
+        dl = get_last_day_of_month(month + 1, year)
+        dd = get_previous_working_day(dl)
         rate = get_euro_rate_from_day(dd)
-        result.append({"month":f"{dd:%B}" , "last_day": f"{dd:%A, %d-%m-%Y}", "rate": rate})
+        result.append({"month":f"{dd:%B}" , "end_day": f"{dl:%A, %d-%m-%Y}", "fx_day":f"{dd:%A, %d-%m-%Y}", "rate": rate})
 
     return render_template(
         "index.html", message=f"FX rate at the end of each month in {year}", months=result
