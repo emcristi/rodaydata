@@ -20,7 +20,7 @@ def get_date(date_str: str):
     except ValueError:
         return jsonify({"error": "Invalid date format. Please use YYYY-MM-DD."})
 
-@app.route("/<int:year>/<int:month>")
+@app.route("/<int:year>/<int:month>.html")
 def month_page(year: int, month: int):
     today = date.today()
     try:
@@ -71,7 +71,7 @@ def root():
 def url_generator():
     yield '/'
     for month in range(1,12):
-        yield f"/2024/{month}"
+        yield f"/2024/{month}.html"
 
 if __name__ == "__main__":
     app.run(debug=True)
