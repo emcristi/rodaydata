@@ -4,6 +4,7 @@ from invoice_utils import (
     get_previous_working_day,
     get_last_day_of_month,
     get_euro_rate_from_day,
+    get_euro_rate_from_day2,
 )
 from datetime import date
 from flask_frozen import Freezer
@@ -60,7 +61,9 @@ def root():
     for month in range(12):
         dl = get_last_day_of_month(month + 1, year)
         dd = get_previous_working_day(dl)
+        # rate2 = get_euro_rate_from_day(dd)
         rate = get_euro_rate_from_day(dd)
+        
         result.append({"month":f"{dd:%B}" , "end_day": dl, "fx_day": dd, "rate": rate})
 
     return render_template(

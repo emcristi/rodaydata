@@ -1,26 +1,47 @@
 from datetime import date, timedelta
 import re
 import holidays
+import xml.etree.ElementTree as ET
 
+
+def get_euro_rate_from_day2(d: date):
+    file_path = f"static/nbrfxrates{d:%Y}.xml"
+    context = ET.iterparse(file_path, events=("start", "end"))
+    rate = 0
+    line = 0
+    for event, elem in context:
+        if event == "start" and elem.tag == "Cube":
+            print(elem.attrib)
+            if elem.attrib.get("date") == f"{d:%Y-%m-%d}":
+                for rate in elem.findall("Rate"):
+                    if rate.attrib.get("currency") == "EUR":
+                        rate = float(rate.text)
+                        break
+    if rate == 0:
+        print(f"no rate found for {d:%Y-%m-%d}")
+        # rate = get_euro_rate_from_day(d - timedelta(days=1))
+    return rate
 
 def get_euro_rate_from_day(d: date):
     file_path = f"static/nbrfxrates{d:%Y}.xml"
 
     with open(file_path, "r", encoding="utf-8") as response:
         xml = response.read()
-        date_format = f"{d:%Y-%m-%d}"
+        date_format = f'date="{d:%Y-%m-%d}"'
         look_for_rate = False
         rate = 0
+        
         for xml_line in xml.splitlines():
-            # print(look_for_rate)
-            if date_format in xml_line:
+            if date_format in xml_line: 
                 look_for_rate = True
             if look_for_rate and "EUR" in xml_line:
                 match = re.search(r'<Rate currency="EUR">([\d.]+)</Rate>', xml_line)
                 rate = float(match.group(1))
                 break
+    
     if rate == 0:
-        rate = get_euro_rate_from_day(d - timedelta(days=1))
+        rate = get_euro_rate_from_day2(d - timedelta(days=1))
+    
     return rate
 
 
@@ -74,7 +95,7 @@ def get_last_day_of_month(month: int, year: int) -> date:
 
 
 if __name__ == "__main__":
-    month = 11
+    month = 12
     year = 2024
     dl = get_last_day_of_month(month, year)
     dd = get_previous_working_day(get_last_day_of_month(month,year));

@@ -1,5 +1,9 @@
 # rodaydata
 
+## Activate the virtual emvironment
+
+    source .venv/bin/activate
+
 ## Run
 
 Start with 
@@ -12,7 +16,7 @@ https://flask.palletsprojects.com/en/stable/quickstart/
 
 Develop with
 
-    flask --app hello run --debug
+    flask --app app run --debug
 
 
 Get the latest FX-rates from `wget https://www.bnro.ro/files/xml/years/nbrfxrates2024.xml`
