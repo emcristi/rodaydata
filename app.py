@@ -73,7 +73,7 @@ def root():
 @freezer.register_generator
 def url_generator():
     yield '/'
-    for month in range(1,12):
+    for month in range(1,13):
         yield f"/2024/{month}.html"
 
 if __name__ == "__main__":
